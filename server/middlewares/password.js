@@ -8,7 +8,7 @@ const passwordSchema = new passwordValidator();
 // schema have to respect these otpions : 
 passwordSchema
 .is().min(5) // Min Lenght 5
-.is().max(10) // Max lenght 10
+.is().max(15) // Max lenght 10
 .has().digits(2) // have at least 2 digits
 .has().uppercase(2) // have at least 2 uppercases
 .has().not().spaces() // should not have spaces

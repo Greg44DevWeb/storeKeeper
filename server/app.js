@@ -16,7 +16,7 @@ app.use(express.json()); //extrait le corps JSON du frontend
 app.use(express.urlencoded({ extended: true }));
 
 // *** Connexion to MongoDb Cluster *** //
-mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+mongoose.connect(`${process.env.DB_LOCAL_PROTOCOLE}://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_LOCAL_CLUSTER}/${process.env.DB_NAME}?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -37,17 +37,18 @@ app.use((req, res, next) => {
   next();
 });
 
-//****** IMPORTS ET ROUTES PRINCIPALES ******//
-  //const usersRoutes = require("./Routes/users");
+//****** Main Routes ******//
+  const usersRoutes = require("./Routes/users");
 //   const productRoutes = require("./Routes/products");
 //   const recipesRoutes = require("./Routes/recipes");
 //   const commandRoutes = require('./Routes/commands');
 
-  //app.use("/api/users", usersRoutes);
+  app.use("/api/users", usersRoutes);
 //   app.use("/api/products", productRoutes);
 //   app.use("/api/recipes", recipesRoutes);
 //   app.use("api/commands", commandRoutes);
 
+//*** Images Files Management  ***//
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
