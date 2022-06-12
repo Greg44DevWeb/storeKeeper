@@ -1,6 +1,6 @@
 # STOREKEEPER API 
 
-StoreKeeper is an app for training center  
+StoreKeeper is an app for training center build in NoSql mode. 
 
 ## Installation
 
