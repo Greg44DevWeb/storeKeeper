@@ -1,4 +1,4 @@
-# STOREKEEPER API 
+# STOREKEEPER API - MERN PROJECT
 
 StoreKeeper is an app for training center build in NoSql mode. 
 
